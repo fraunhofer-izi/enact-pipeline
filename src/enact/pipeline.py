@@ -904,6 +904,9 @@ class ENACT:
                 self.logger.info("ERROR", self.bin_to_cell_method)
             self.logger.info("<assign_bins_to_cells> convert_adata_to_cell_by_gene")
             cell_by_gene_adata = self.convert_adata_to_cell_by_gene(expanded_adata)
+            expanded_adata.write_h5ad(
+                os.path.join(self.bin_assign_dir, chunk + ".h5ad")
+            )
             del expanded_adata
 
             # Save the gene to cell assignment results to a .csv file
